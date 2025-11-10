@@ -4,7 +4,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 router.post('/contents', authMiddleware, createContent);
-router.get('/contents', authMiddleware, getContents); // Dengan paging
+router.get('/contents', authMiddleware, getContents);
 router.get('/contents/:id', authMiddleware, getContentById);
 router.put('/contents/:id', authMiddleware, updateContent);
 router.delete('/contents/:id', authMiddleware, deleteContent);

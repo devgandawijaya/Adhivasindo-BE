@@ -1,0 +1,2 @@
+- [x] Replace Activate button with 2-column grid of 5 cards: Card Info, Lock Card, Autorecharge, Apply, Renew
+- [x] Add card details in bottom left: card number with show/hide eye icon, name below, CVV and Expire Date below name

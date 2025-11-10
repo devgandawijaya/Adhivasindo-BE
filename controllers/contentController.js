@@ -4,7 +4,7 @@ const responseUtil = require('../utils/response');
 exports.createContent = async (req, res) => {
   const { title, body } = req.body;
   try {
-    const content = await Content.create({ title, body, userId: req.user.id }); // req.user dari middleware
+    const content = await Content.create({ title, body, userId: req.user.id });
     res.status(201).json(responseUtil.success(201, 'Content created successfully', content));
   } catch (error) {
     res.status(500).json(responseUtil.error(500, error.message));
@@ -12,13 +12,13 @@ exports.createContent = async (req, res) => {
 };
 
 exports.getContents = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query; // Paging: ?page=1&limit=10
+  const { page = 1, limit = 10 } = req.query;
   const offset = (page - 1) * limit;
   try {
     const { count, rows } = await Content.findAndCountAll({
       limit: parseInt(limit),
       offset: parseInt(offset),
-      include: [User], // Join dengan user
+      include: [User],
       order: [['createdAt', 'DESC']],
     });
     const data = {
